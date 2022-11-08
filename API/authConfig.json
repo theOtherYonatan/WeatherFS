@@ -1,0 +1,45 @@
+{
+  "credentials": {
+    "tenantID": "b8ff19b6-78c3-4706-97a1-a2712549d8d5",
+    "clientID": "87db90c6-97b4-41dc-82b2-7cda69da58b3",
+    "clientSecret": "03Q8Q~zDUD3QBHjoDUCkjawa9PgmzXeYEsXCBb5-"
+  },
+  "metadata": {
+    "authority": "login.microsoftonline.com",
+    "discovery": ".well-known/openid-configuration",
+    "version": "v2.0"
+  },
+  "settings": {
+    "validateIssuer": true,
+    "passReqToCallback": false,
+    "loggingLevel": "info",
+    "cacheTTL": 3600
+  },
+  "protectedResources": {
+    "graphAPI": {
+      "endpoint": "https://graph.microsoft.com/v1.0/me/checkMemberGroups",
+      "scopes": ["User.Read", "GroupMember.Read.All"]
+    }
+  },
+  "protectedRoutes": {
+    "todolist": {
+      "endpoint": "/api",
+      "scopes": ["access_via_group_assignments"]
+    }
+  },
+  "accessMatrix": {
+    "todolist": {
+      "path": "/todolist",
+      "methods": ["GET", "POST", "PUT", "DELETE"],
+      "groups": [
+        "82815d9e-df9a-4f1d-99d7-d62bdf599d86",
+        "f96fbbdf-17a4-4b8c-ae92-69fd2ce2758f"
+      ]
+    },
+    "dashboard": {
+      "path": "/dashboard",
+      "methods": ["GET"],
+      "groups": ["f96fbbdf-17a4-4b8c-ae92-69fd2ce2758f"]
+    }
+  }
+}
